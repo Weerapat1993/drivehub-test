@@ -1,7 +1,13 @@
 import styled from 'styled-components'
 
-export const Title = styled.h3`
+export const Title = styled.div`
   color: white;
+  height: 80px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `
 
 export const Background = styled.div`
@@ -9,8 +15,10 @@ export const Background = styled.div`
 `
 
 export const Container = styled.div`
-  min-width: 1280px;
+  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
+  height: 80px;
 `
 
 export const FooterContainer = styled.div`

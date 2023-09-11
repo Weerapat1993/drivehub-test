@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Background = styled.div`
   background-color: ${props => props.color};
   height: 100px;
+  padding: 0 50px;
 `
 
 export const Container = styled.div`
@@ -15,7 +16,7 @@ export const Container = styled.div`
 `
 
 export const ContainerFilter = styled.div`
-  width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
 `
 
@@ -34,7 +35,18 @@ export const MarginAuto = styled.div`
 
 export const FlexEnd = styled.div`
   display: flex;
+  height: 100px;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
+  align-items: flex-end;
+  justify-content: center;
+`
+
+export const FlexStart = styled.div`
+  display: flex;
+  height: 100px;
+  width: 200px;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 `

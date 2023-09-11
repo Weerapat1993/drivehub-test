@@ -15,17 +15,18 @@ const ProductFilter: React.FC<Props> = (props) => {
   return (
     <Background color="white">
       <ContainerFilter>
-        <Row>
-          <Col md={12}>
+        <Row style={{ height: 80 }}>
+          <Col sm={24} md={12}>
             <Title level={2}>
               Car Available
             </Title>
           </Col>
-          <Col md={12}>
+          <Col sm={24} md={12}>
             <FlexEnd>
               <Space direction="horizontal">
                 <Input placeholder="Search Car" size='large' onChange={onSearch} />
                 <Select
+                  style={{ width: 200 }}
                   size='large'
                   onChange={onSort}
                   options={[

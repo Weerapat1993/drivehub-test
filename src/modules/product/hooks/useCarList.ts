@@ -13,11 +13,10 @@ const filterCar = (filter: Filter) =>
 
 export const sortCar = (filter: Filter) =>
   ((a: ICar, b: ICar) => {
-    switch(filter.sort) {
-      case 'asc':
-        return a.price - b.price
-      case 'desc':
-        return b.price - a.price
+    if(filter.sort === 'desc') {
+      return b.price - a.price
+    } else {
+      return a.price - b.price
     }
   })
 
@@ -31,6 +30,6 @@ export const useCarLists = ({ filter }: { filter: Filter }) => {
       price: item?.price,
       photo: item?.photo,
     }))
-  // const isSort = Boolean(filter.sort)
-  return { data, loading, error, list}
+  const isSort = Boolean(filter.sort)
+  return { data, loading, error, list: isSort ? list.sort(sortCar(filter)) : list }
 }
