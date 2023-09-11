@@ -5,6 +5,7 @@ export interface ICar {
   title: string
   price: number
   photo: string
+  qty?: number
 }
 
 export interface CarAPIResponse {
