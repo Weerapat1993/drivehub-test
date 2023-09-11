@@ -11,3 +11,10 @@ export const TextLarge = styled.span`
   font-size: 20px;
   margin: 0 20px;
 `
+export const CartEmpty = styled.span`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+`

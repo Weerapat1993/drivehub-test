@@ -28,3 +28,12 @@ export const FooterContainer = styled.div`
   background-color: #111827;
   color: white;
 `
+
+export const MarginAuto = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+`
+
+export const PaddingSmall = styled.div`
+  padding: 5px;
+`

@@ -16,21 +16,21 @@ const ProductFilter: React.FC<Props> = (props) => {
     <Background color="white">
       <ContainerFilter>
         <Row style={{ height: 80 }}>
-          <Col sm={24} md={12}>
+          <Col flex="200px">
             <Title level={2}>
               Car Available
             </Title>
           </Col>
-          <Col sm={24} md={12}>
+          <Col flex="auto">
             <FlexEnd>
               <Space direction="horizontal">
                 <Input placeholder="Search Car" size='large' onChange={onSearch} />
                 <Select
-                  style={{ width: 200 }}
+                  style={{ width: 170 }}
                   size='large'
                   onChange={onSort}
                   options={[
-                    { value: '', label: '--- Sort ---' },
+                    { value: '', label: '----- Sort -----' },
                     { value: 'asc', label: 'Price: Low - High' },
                     { value: 'desc', label: 'Price: High - Low' },
                   ]}

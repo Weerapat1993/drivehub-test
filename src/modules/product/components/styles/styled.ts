@@ -4,6 +4,7 @@ export const Background = styled.div`
   background-color: ${props => props.color};
   min-height: 100px;
   padding: 0 50px;
+  margin-bottom: 30px;
 `
 
 export const Container = styled.div`
@@ -31,6 +32,7 @@ export const MarginAuto = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 10px 0;
 `
 
 export const FlexEnd = styled.div`

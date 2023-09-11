@@ -6,11 +6,13 @@ import { RootState } from '..'
 export interface CartState {
   list: string[]
   keys: any
+  qty: any
 }
 
 const initialState: CartState = {
   list: [],
   keys: {},
+  qty: {}
 }
 
 export const cartSlice = createSlice({
@@ -19,22 +21,22 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action: PayloadAction<ICar>) => {
       const key = action.payload.id
+      state.keys[key] = action.payload
       if(!state.list.includes(key)) {
-        state.keys[key] = action.payload
-        state.keys[key].qty = 1
+        state.qty[key] = 1
         state.list.push(key)
       } else {
-        state.keys[key].qty++
+        state.qty[key]++
       }
     },
     addItem: (state, action: PayloadAction<ICar>) => {
       const key = action.payload.id
-      state.keys[key].qty++
+      state.qty[key]++
     },
     removeItem: (state, action: PayloadAction<ICar>) => {
       const key = action.payload.id
-      state.keys[key].qty--
-      if(state.keys[key].qty <= 0) {
+      state.qty[key]--
+      if(state.qty[key] <= 0) {
         state.list = state.list.filter(listKey => listKey !== key)
       }
     }
@@ -49,7 +51,12 @@ export const selectCartItems = (state: RootState) => {
   let list: ICar[] = []
   state.cart.list.forEach(key => {
     const data = state.cart.keys?.[key]
-    list.push(data)
+    const qty = state.cart.qty?.[key]
+    const newData = {
+      ...data,
+      qty,
+    }
+    list.push(newData)
   })
   return list
 }

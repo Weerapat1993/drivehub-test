@@ -3,7 +3,6 @@ import { Layout, Row, Col } from 'antd';
 import { Link } from 'react-router-dom'
 import { Container, Title, FooterContainer } from './styled'
 import { CartModal } from '../../modules/cart/components';
-import Notification from './Notification'
 
 const { Header, Content, Footer } = Layout;
 
@@ -42,7 +41,6 @@ const AppLayout: React.FC<Props> = ({ children }) => {
         </Container>
       </Header>
       <Content>
-        <Notification />
         {children}
       </Content>
       <Footer style={{ background: '#111827', height: 100 }}>
