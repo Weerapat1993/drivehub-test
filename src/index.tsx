@@ -7,19 +7,27 @@ import { RouterProvider } from 'react-router-dom';
 import { theme } from './config/antd';
 import { client } from './config/apollo'
 import { router } from './config/react-router-dom';
+import { store } from './store'
+import { Provider as ReduxProvider } from 'react-redux'
 import './styles/globalStyles.css'
+
+const App = () => (
+  <ApolloProvider client={client}>
+    <React.StrictMode>
+      <ReduxProvider store={store}>
+        <ConfigProvider theme={theme}>
+          <RouterProvider router={router} />
+        </ConfigProvider>
+      </ReduxProvider>
+    </React.StrictMode>
+  </ApolloProvider>
+)
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <ApolloProvider client={client}>
-    <React.StrictMode>
-      <ConfigProvider theme={theme}>
-        <RouterProvider router={router} />
-      </ConfigProvider>
-    </React.StrictMode>
-  </ApolloProvider>
+  <App />
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Background = styled.div`
   background-color: ${props => props.color};
-  height: 100px;
+  min-height: 100px;
   padding: 0 50px;
 `
 

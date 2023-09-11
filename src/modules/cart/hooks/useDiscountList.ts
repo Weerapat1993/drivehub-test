@@ -2,9 +2,9 @@ import { useQuery } from '@apollo/client'
 import { QUERY_DISCOUNT_LIST } from '../graphql/query'
 import { DiscountAPIResponse, IDiscount } from '../types/discount'
 
-export const useCarLists = () => {
+export const useDiscountList = () => {
   const { data, loading, error } = useQuery(QUERY_DISCOUNT_LIST)
-  const list: IDiscount[] = (data?.carCollection?.items || []).map((item: DiscountAPIResponse) => ({
+  const list: IDiscount[] = (data?.discountCollection?.items || []).map((item: DiscountAPIResponse) => ({
       id: item?.sys?.id,
       code: item?.code,
       amount: item?.amount,

@@ -19,11 +19,7 @@ const CartList: FC<Props> = (props) => {
         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
           {list.map((car: ICar) => (
             <Col key={car.id} className="gutter-row" xs={24} sm={24} md={12} lg={8} xl={6}>
-              <ProductCard
-                title={car.title}
-                price={car.price}
-                image={car.photo}
-              />
+              <ProductCard data={car} />
             </Col>
           ))}
         </Row>
