@@ -39,7 +39,7 @@ const CartModal = () => {
   const cartItems = useSelector(selectCartItems)
   const { list } = useDiscountList()
   const total = cartItems.reduce((pre: number, cur) => pre + (cur.price * (cur.qty || 0)), 0)
-  const discount = 0
+  const discount = list.filter(item => item.code === code)?.[0]?.amount || 0
   const grandTotal = total - discount
   const data = [
     {
@@ -72,6 +72,7 @@ const CartModal = () => {
         break
     }
   }
+  const discountAmount = list.filter(item => item.code === code)?.[0]?.amount || 0
   const isCodeCorrect = list.filter(item => item.code === code).length > 0
   return (
     <Fragment>
